@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A private, local-first WCAG colour contrast workspace.">
+    <title>Contrast Lab — accessible colour pairs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="src/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Contrast Lab home"><span>CL</span> Contrast Lab</a>
+      <a class="github" href="https://github.com/harshitgupta31415/contrast-lab">View source</a>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Accessible colour workspace</p>
+        <h1 id="page-title">Test the pair.<br>Keep the character.</h1>
+        <p>Measure WCAG contrast, compare common text thresholds, and share a colour pair—all without uploading design data.</p>
+      </section>
+
+      <section class="workspace" aria-label="Contrast calculator">
+        <div class="controls">
+          <div class="control-heading">
+            <div>
+              <p class="eyebrow">01 · Inputs</p>
+              <h2>Choose two colours</h2>
+            </div>
+            <button id="swap" class="icon-button" type="button" aria-label="Swap foreground and background">Swap</button>
+          </div>
+
+          <div class="colour-fields">
+            <div class="field">
+              <span class="field-label">Foreground</span>
+              <span class="colour-input">
+                <input id="foreground" type="color" aria-label="Foreground colour picker">
+                <input id="foreground-text" type="text" inputmode="text" maxlength="7" spellcheck="false" aria-label="Foreground hexadecimal value">
+              </span>
+            </div>
+            <div class="field">
+              <span class="field-label">Background</span>
+              <span class="colour-input">
+                <input id="background" type="color" aria-label="Background colour picker">
+                <input id="background-text" type="text" inputmode="text" maxlength="7" spellcheck="false" aria-label="Background hexadecimal value">
+              </span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="recommend" class="button primary" type="button">Choose readable text</button>
+            <button id="copy" class="button" type="button">Copy CSS</button>
+          </div>
+          <p id="status" class="status" aria-live="polite"></p>
+
+          <div class="presets">
+            <p>Curated pairs</p>
+            <div>
+              <button type="button" data-foreground="#172033" data-background="#F7F5EF">Ink</button>
+              <button type="button" data-foreground="#F7F5EF" data-background="#172033">Night</button>
+              <button type="button" data-foreground="#231A12" data-background="#FFC857">Signal</button>
+              <button type="button" data-foreground="#FFFFFF" data-background="#8B1E3F">Berry</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="preview" class="preview">
+          <div class="preview-topline"><span>Live preview</span><span>Body · 18px</span></div>
+          <p class="preview-kicker">Design for everyone</p>
+          <h2>Clarity should never be decorative.</h2>
+          <p>Readable interfaces reduce effort, preserve hierarchy, and help more people complete the task in front of them.</p>
+          <button type="button">Example action</button>
+        </div>
+      </section>
+
+      <section class="results" aria-labelledby="results-title">
+        <div class="score">
+          <p class="eyebrow">02 · Result</p>
+          <h2 id="results-title"><span id="ratio">—</span> <small id="rating">Calculating</small></h2>
+        </div>
+        <div class="standards">
+          <div id="aa-normal"><span>AA · Normal text</span><strong>—</strong></div>
+          <div id="aa-large"><span>AA · Large text</span><strong>—</strong></div>
+          <div id="aaa-normal"><span>AAA · Normal text</span><strong>—</strong></div>
+          <div id="aaa-large"><span>AAA · Large text</span><strong>—</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>WCAG calculations run entirely in your browser. No analytics. No colour data leaves the page.</footer>
+  </body>
+</html>
